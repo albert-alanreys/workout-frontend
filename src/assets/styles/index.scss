@@ -7,15 +7,19 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+
 	&:before,
 	&:after {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
 	}
+
 	&:focus {
 		outline: none;
 	}
+
+	font-family: $default-font;
 }
 
 *::-webkit-input-placeholder {
@@ -47,11 +51,10 @@ body {
 	padding: 0;
 	margin: 0;
 	color: #fff;
-	font-size: 18px;
+	font-size: 20px;
 	min-width: 320px;
 	position: relative;
 	line-height: 1.65;
-	font-family: $default-font;
 	overflow-x: hidden;
 }
 
@@ -96,9 +99,4 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-	-moz-appearance: textfield;
 }
