@@ -5,6 +5,7 @@
 	"jsxSingleQuote": true,
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
+		"/ui/",
 		"/hooks/",
 		"/screens/",
 		"/components/",

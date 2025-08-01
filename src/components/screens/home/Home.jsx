@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
+import Button from '../../ui/button/Button';
+
 import { useAuth } from '../../../hooks/useAuth';
 
 import Layout from '../../layout/Layout';
-import Button from '../../ui/button/Button';
 
 import styles from './Home.module.scss';
 
