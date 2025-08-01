@@ -1,9 +1,9 @@
 {
-	"name": "workout",
+	"name": "workout-frontend",
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",
-	"description": "A workout and progress tracking application (pet project).",
+	"description": "Frontend for the Workout educational project",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
@@ -15,9 +15,16 @@
 		"url": "git+https://github.com/albert-alanreys/workout.git"
 	},
 	"keywords": [
-		"workout",
-		"tracking",
-		"pet-project"
+		"axios",
+		"fitness",
+		"fitness-app",
+		"frontend",
+		"react",
+		"react-hook-form",
+		"react-router",
+		"scss",
+		"tanstack-query",
+		"vite"
 	],
 	"author": "Albert Alan-Reys",
 	"dependencies": {
