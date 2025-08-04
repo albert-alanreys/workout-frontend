@@ -18,7 +18,9 @@ const HeaderWorkout = ({ workoutLog, isSuccess }) => {
 
 			{isSuccess && (
 				<div>
-					<time className={styles.time}>{workoutLog.minute + ' min.'}</time>
+					<time className={styles.time}>
+						{workoutLog.totalMinutes + ' min.'}
+					</time>
 					<h1 className={stylesLayout.heading}>{workoutLog.workout.name}</h1>
 				</div>
 			)}
