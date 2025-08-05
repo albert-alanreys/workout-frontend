@@ -8,7 +8,9 @@ import { useUpdateLogTime } from './useUpdateLogTime';
 
 export const useExerciseLog = () => {
 	const { id } = useParams();
+
 	const [times, setTimes] = useState([]);
+
 	const {
 		data: exerciseLog,
 		isSuccess,
@@ -26,7 +28,7 @@ export const useExerciseLog = () => {
 		}
 	}, [isSuccess, exerciseLog]);
 
-	const { errorChange, updateTime } = useUpdateLogTime();
+	const { error, updateTime } = useUpdateLogTime(exerciseLog?.times);
 
 	const onChangeState = (timeId, key, value) => {
 		const newTimes = times.map((time) => {
@@ -67,7 +69,7 @@ export const useExerciseLog = () => {
 		isSuccess,
 		isLoading,
 		toggleTime,
-		errorChange,
+		error,
 		onChangeState,
 		getState,
 	};

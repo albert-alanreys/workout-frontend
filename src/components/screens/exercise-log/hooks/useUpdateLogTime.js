@@ -3,20 +3,30 @@ import { useParams } from 'react-router-dom';
 
 import ExerciseLogService from '../../../../services/exercise/exercise-log.service';
 
-export const useUpdateLogTime = () => {
+import { useCompleteLog } from './useCompleteLog';
+
+export const useUpdateLogTime = (times) => {
 	const { id } = useParams();
 
 	const queryClient = useQueryClient();
+
+	const { completeLog, errorCompleted } = useCompleteLog();
 
 	const mutation = useMutation({
 		mutationFn: ({ timeId, body }) =>
 			ExerciseLogService.updateTime(timeId, body),
 		onSuccess: () => {
-			queryClient.invalidateQueries(['get exercise log', id]);
+			queryClient.invalidateQueries(['get exercise log', id]).then(() => {
+				const filteredTimes = times.filter((time) => time.isCompleted);
+
+				if (filteredTimes.length === times.length - 1) {
+					completeLog({ isCompleted: true });
+				}
+			});
 		},
 	});
 
 	const { mutate, error: errorChange } = mutation;
 
-	return { updateTime: mutate, errorChange };
+	return { updateTime: mutate, error: errorChange || errorCompleted };
 };
