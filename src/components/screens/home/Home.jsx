@@ -13,7 +13,7 @@ function Home() {
 	return (
 		<Layout bgImage='/images/home-bg.jpg'>
 			<Button clickHandler={() => navigate('/new-workout')}>New</Button>
-			<h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
+			<h1 className={styles.heading}>Progress Is Earned Through Pain</h1>
 			<Statistics />
 		</Layout>
 	);
