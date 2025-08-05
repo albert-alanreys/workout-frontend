@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ExerciseLogService from '../../../../services/exercise/exercise-log.service';
@@ -8,9 +8,7 @@ import { useUpdateLogTime } from './useUpdateLogTime';
 
 export const useExerciseLog = () => {
 	const { id } = useParams();
-
 	const [times, setTimes] = useState([]);
-
 	const {
 		data: exerciseLog,
 		isSuccess,
@@ -20,16 +18,17 @@ export const useExerciseLog = () => {
 		queryFn: () => ExerciseLogService.getById(id),
 		select: ({ data }) => data,
 		enabled: !!id,
-		onSuccess: (data) => {
-			if (data?.times?.length) setTimes(data.times);
-		},
 	});
+
+	useEffect(() => {
+		if (isSuccess && exerciseLog?.times?.length) {
+			setTimes(exerciseLog.times);
+		}
+	}, [isSuccess, exerciseLog]);
 
 	const { errorChange, updateTime } = useUpdateLogTime();
 
 	const onChangeState = (timeId, key, value) => {
-		console.log(111);
-
 		const newTimes = times.map((time) => {
 			if (time.id === timeId) {
 				return { ...time, [key]: value };
@@ -39,7 +38,6 @@ export const useExerciseLog = () => {
 		});
 
 		setTimes(newTimes);
-		console.log(newTimes);
 	};
 
 	const getTime = (timeId) => {
