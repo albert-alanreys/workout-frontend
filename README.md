@@ -2,7 +2,7 @@
 
 Frontend for the **Workout** educational project.
 
-This project provides a modern React-based user interface for managing workout routines, user authentication, and fitness tracking.
+> React-based interface for workouts, user auth, and progress tracking.
 
 ---
 
@@ -108,4 +108,4 @@ yarn dev
 ---
 
 **License:** MIT  
-**Author:** [Albert Alanreys](https://github.com/albert-alanreys)
+**Author:** [Albert Alan-Reys](https://github.com/albert-alanreys)
